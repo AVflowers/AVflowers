@@ -1,0 +1,293 @@
+ /*Рассчет для экранов от 300px до 767px шрифт от 8 до 16px */
+html {
+    @include mobile {
+        font-size: clamp(0.5rem, 0.1788rem + 1.7131vw, 1rem);
+    }
+
+    @include desktop {
+        /*Рассчет для экранов от 1024px(нижняя граница desktop) до 1340px(ширина контейнера) шрифт от 16 до 22px */
+        font-size: clamp(1rem, 0.3333rem + 1.0417vw, 1.375rem);
+    }
+}
+
+body:has(#menu_toogle:checked) {
+    overflow: hidden;
+}
+
+.container {
+    max-width: 1600px;
+    padding: 1rem 2rem 1rem 3rem;
+    margin: auto;
+
+    @include mobile {
+        padding: 1.5rem;
+    }
+}
+
+.block-scroll-body {
+    overflow: hidden;
+}
+
+header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 20;
+    background-color: unset;
+    transition: all 0.3s ease 0.15s;
+    & img {
+        z-index: 20;
+        position: relative;
+        width: 80px;
+        transition: all 0.3s ease 0.15s;
+        @media (min-width: 1024px) {
+            width: 130px;
+        }
+    }
+
+    &.scroll {
+        background-color: #8ca170;
+        & img {
+            width: 55px;
+        }
+    }
+
+    #menu_toogle {
+        width: 50px;;
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        z-index: 20;
+        background-color: unset;
+        @media (min-width: 1024px) {
+            display: none;
+        }
+        span {
+            display: block;
+            width: 100%;
+            height: 2px;
+            background-color: #FFFFFF;
+            transition: all 0.3s ease 0.15s;
+            &:not(:last-child) {
+                margin-bottom: 5px;
+            }
+        }
+
+        &.open span:first-child {
+            transform: translateY(7px) rotate(45deg);
+        }
+
+        &.open span:nth-child(2) {
+            width: 0px;
+            transition-delay: 0s;
+        }
+
+        &.open span:nth-child(3){
+            transform: translateY(-8px) rotate(-45deg);
+        }
+    }
+
+    & .menu_container {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        text-align: center;
+
+        & > img {
+                margin-right: auto;
+                z-index: 3;
+        }
+
+        & label, input {
+            display: none;
+
+            @include mobile {
+                display: block;
+            }
+
+            @include tablet {
+                display: block;
+            }
+        }
+
+        & nav {
+            display: flex;
+            visibility: hidden;
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            top: 0;
+            left: -100%;
+            background-color: $green;
+            transition-duration: 0.4s;
+            justify-content: center;
+            overflow-y: scroll;
+            overflow-x: hidden;
+            @media (min-width: 1024px) {
+                visibility: unset;
+                align-items: center;
+                position: initial;
+                width: auto;
+                height: auto;
+                background-color: unset;
+                overflow-y: hidden;
+            }
+            &.open {
+                visibility: unset;
+                left: 0;
+            }
+        }
+
+        & nav > img {
+            display: none;
+
+            @include mobile {
+                display: block;
+                position: absolute;
+                right: -2%;
+                width: 20rem;
+                bottom: 25%;
+                transform: rotateY(180deg);
+            }
+
+            @include tablet {
+                display: block;
+                position: absolute;
+                right: -2%;
+                width: 20rem;
+                bottom: 33%;
+                transform: rotateY(180deg);
+            }
+        }
+
+        & nav ul {
+            display: flex;
+
+            @include mobile {
+                flex-flow: column;
+                margin-top: 10rem;
+            }
+
+            @include tablet {
+                flex-flow: column;
+                margin-top: 10rem;
+            }
+        }
+
+        & nav li {
+            @include mobile {
+                padding: 2.5rem;
+                width: 100%;
+
+                &:nth-of-type(1),&:nth-of-type(2),&:nth-of-type(3) {
+                    border-bottom:  1px solid $green;
+                }
+            }
+
+            @include tablet {
+                padding: 2.5rem;
+                width: 100%;
+
+                &:nth-of-type(1),&:nth-of-type(2),&:nth-of-type(3) {
+                    border-bottom:  1px solid $green;
+                }
+            }
+
+            &:not(:last-child) {
+                align-self: center;
+                margin: 0 1.25rem;
+                @include Exo (1.125rem);
+                color: $white;
+
+                &:hover {
+                    text-decoration: underline;
+                    cursor: pointer;
+                }
+
+                @include mobile {
+                    @include Exo (2rem, 2.5rem)
+                }
+
+                @include tablet {
+                    @include Exo (2rem, 2.5rem)
+                }
+            }
+        }
+
+        nav a:last-of-type {
+            text-decoration: none;
+
+            @include desktop {
+                &:hover span {
+                    display: block;
+                }
+            }
+
+        }
+
+        & .menu_contact {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            z-index: 3;
+            border: 2px solid $white;
+            padding: 0.5rem 0.5rem;
+            border-radius: 0.5rem;
+
+            @include mobile {
+                margin-top: 5rem;
+            }
+
+            @include tablet {
+                margin-top: 5rem;
+            }
+
+            & img {
+                max-width: 20px;
+            }
+
+            & span:first-of-type {
+                @include Exo (0.75rem);
+                color: $white;
+                margin-right: 0.5rem;
+
+                @include mobile {
+                    @include Exo (2.1rem,3rem);
+                }
+
+                @include tablet {
+                    @include Exo (2.5rem,3rem);
+                    padding: 2rem 3rem;
+                }
+            }
+
+            & span:last-of-type {
+                display: none;
+                top: 110%;
+                @include Exo (0.75rem);
+                color: $black;
+                background-color: $white;
+                padding: 0.5rem;
+                position: absolute;
+                border-radius: 0.25rem;
+
+
+                @include mobile {
+                    display: none;
+                    @include Exo (2rem,2.5rem);
+                    padding-top: 2rem;
+                }
+
+                @include tablet {
+                    display: none;
+                    @include Exo (2rem,2.5rem);
+                    padding-top: 2rem;
+                }
+            }
+        }
+    }
+}

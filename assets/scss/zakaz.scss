@@ -1,0 +1,172 @@
+.zakazsec {
+    max-width: 1340px;
+    padding: 0 10px;
+    margin: auto;
+
+    &__h2 {
+        padding: 7rem 0 4rem;
+        @include Exo-Bold-font ($fz: 2.25rem, $lh: 2.8rem);
+        text-align: center;
+        text-transform: uppercase;
+    }
+
+    p {
+        @include Exo($fz: 1.3rem, $lh: 1.7rem);
+
+        @include mobile {
+            @include Exo($fz: 1.6rem, $lh: 2.2rem);
+            text-align: center;
+        }
+    }
+
+    p:not(:last-child) {
+        padding-bottom: 1.1rem;
+    }
+
+    &__blok {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 20px;
+
+        @include mobile {
+            display: block;
+        }
+    }
+
+    &__left {
+        display: flex;
+        align-items: center;
+        padding: 1rem;
+        width: 30%;
+        flex-wrap: nowrap;
+        background: $lightgreen;
+
+        @include mobile {
+            width: 100%;
+        }
+
+        @include tablet {
+            width: 100%;
+        }
+
+    }
+
+    &__right {
+        width: 68%;
+        background: $lightgreen;
+        flex-wrap: nowrap;
+        @include Exo ($fz: 1.3rem, $lh: 1.7rem);
+        padding: 1rem;
+
+        @include mobile {
+            padding-top: 1rem;
+            width: 100%;
+            @include Exo ($fz: 1.6rem, $lh: 2.2rem);
+            text-align: center;
+        }
+
+        @include tablet {
+            padding-top: 1rem;
+            width: 100%;
+            @include Exo ($fz: 1.3rem, $lh: 1.7rem);
+            text-align: center;
+        }
+    }
+
+    &__bottom {
+        background: $lightgreen;
+        @include Exo ($fz: 1.3rem, $lh: 1.7rem);
+        padding: 1rem;
+
+        @include mobile {
+            @include Exo ($fz: 1.6rem, $lh: 2.2rem);
+            text-align: center;
+        }
+        @include tablet {
+            text-align: center;
+        }
+    }
+
+    &__image {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 4.5rem;
+        height: 4.5rem;
+        background-color: $green;
+        border-radius: 50%;
+
+        @include mobile {
+            width: 5rem;
+            height: 5rem;
+        }
+    }
+
+    &__img {
+        width: 2rem;
+
+        @include mobile {
+            width: 2.5rem;
+        }
+    }
+
+    &__pic {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+
+        @include mobile {
+            grid-template-columns: repeat(1, auto);
+        }
+    }
+
+    &__body {
+        display: grid;
+        justify-items: center;
+
+        @include mobile {
+            padding-top: 2rem;
+        }
+    }
+
+    &__text {
+        padding-top: 0.5rem;
+        @include Exo ($fz: 1.3rem, $lh: 1.7rem);
+        text-align: center;
+
+        @include mobile {
+            @include Exo ($fz: 1.6rem, $lh: 2.2rem);
+
+        }
+    }
+}
+
+
+.vet {
+    position: relative;
+
+    &__background {
+        position: absolute;
+        z-index: -1;
+
+        @include mobile {
+            width: 15rem;
+        }
+
+        @include tablet {
+            width: 20rem;
+        }
+    }
+
+    &__background_1 {
+        left: 0em;
+    }
+
+    &__background_2 {
+        transform: scaleX(-1);
+        right: 0em;
+    }
+}

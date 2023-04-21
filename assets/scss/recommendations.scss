@@ -1,0 +1,91 @@
+.recommendations{
+    max-width: 1340px;
+    padding: 0 10px;
+    margin: auto;
+
+    &__h3{
+        padding: 3.13rem 0rem 2rem;
+        @include Exo-font($fz: 2rem, $lh: 2.5rem);
+        color: $green;
+        }
+
+    p{
+        @include Exo ($fz: 1.3rem, $lh: 1.7rem);
+        @include mobile {
+            @include Exo ($fz: 1.6rem, $lh: 2.2rem);
+            text-align: center;
+        }
+    }
+    p:not(:last-child){
+        padding-bottom: 1.1rem;
+    }
+
+    &__blok{
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        gap: 1rem;
+        @include mobile {
+            grid-template-columns: 1fr
+        }
+    }
+
+    &__left{
+        display: grid;
+        align-items: center;
+        padding: 1rem;
+        background: $lightgreen
+    }
+
+    &__right{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @include mobile {
+            padding-top: 1rem;
+        }
+    }
+
+    &__image{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 4.5rem;
+        height: 4.5rem;
+        background-color: $green;
+        border-radius: 50%;
+        @include mobile {
+            width: 5rem;
+            height: 5rem;
+        }
+    }
+
+    &__img{
+        width: 2rem;
+        @include mobile {
+            width: 2.5rem;
+        }
+    }
+
+    &__pic{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem;
+        padding-top: 2rem;
+        @include mobile {
+            grid-template-columns: repeat(2,auto);
+        }
+    }
+
+    &__body{
+        display: grid;
+        justify-items: center;
+        @include mobile {
+            padding-top: 2rem;
+        }
+    }
+
+    &__text{
+        padding-top: 0.5rem;
+        text-align: center;
+    }
+}

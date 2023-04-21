@@ -1,0 +1,55 @@
+//Это миксины (набор одинаковых свойств для элементов), их подставляете в классы, где нужны эти свойства
+
+/* Для использования миксинов шрифтов, можно указывать название миксина, а в скобочках два параметра (размер и линейную высоту), если их не указывать, то будут базовые величины (1,5 rem(24px) и 1.75rem (28px) соответственно) */
+
+@mixin Exo($fz: 1rem, $lh: 1.5rem) {
+  font-family: $Exo;
+  font-size: $fz;
+  font-weight: 300;
+  line-height: $lh;
+}
+
+@mixin Exo-font($fz: 3rem, $lh: 4rem) {
+  font-family: $Exo;
+  font-size: $fz;
+  font-weight: 500;
+  line-height: $lh;
+}
+
+@mixin Exo-Bold-font($fz: 3rem, $lh: 4rem) {
+  font-family: $Exo;
+  font-size: $fz;
+  font-weight: 700;
+  line-height: $lh;
+  color: $green;
+}
+
+/* Переменные для адаптивной версии */
+
+$desktop-xxl: 2560px;
+$desktop: 1024px;
+$mobile: 768px;
+
+@mixin mobile {
+  @media screen and (max-width:#{$mobile - 1}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (min-width:$mobile) and  (max-width:#{$desktop - 1}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (min-width:$desktop) and  (max-width:#{$desktop-xxl - 1}) {
+    @content;
+  }
+}
+
+@mixin desktop-xxl {
+  @media screen and (min-width: $desktop-xxl) {
+    @content;
+  }
+}

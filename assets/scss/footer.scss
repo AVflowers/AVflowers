@@ -1,0 +1,64 @@
+footer {
+    background: $green;
+}
+
+.footer {
+    display: flex;
+    max-width: 1600px;
+    padding: 10px 10px;
+    margin: auto;
+    align-items: center;
+    justify-content: space-between;
+
+    @include mobile {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    &__icons {
+        width: 40px;
+        height: 40px;
+        @include mobile {
+            width: 25px;
+        }
+
+
+    }
+
+    &__right {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+
+        @include mobile {
+            padding-top: 2rem;
+            justify-content: center;
+        }
+
+    }
+
+    &__text {
+        @include Exo ($fz: 1.3rem, $lh: 1.7rem);
+        color: $white;
+
+        @include mobile {
+            @include Exo ($fz: 1.6rem, $lh: 2.2rem);
+            padding-bottom: 2rem;
+        }
+
+        @include tablet {
+            @include Exo ($fz: 1.3rem, $lh: 1.7rem);
+            padding-bottom: 2rem;
+        }
+    }
+
+    &__logo {
+        @include mobile {
+            width: 100px;
+        }
+
+        @include tablet {
+            width: 100px;
+        }
+    }
+}
