@@ -289,6 +289,7 @@ header .menu_container .menu_contact span:first-of-type {
   }
 }
 header .menu_container .menu_contact span:last-of-type {
+  padding: 0 0.5rem;
   display: none;
   top: 110%;
   font-family: "Exo 2";
@@ -297,7 +298,6 @@ header .menu_container .menu_contact span:last-of-type {
   line-height: 1.5rem;
   color: #000000;
   background-color: #ffffff;
-  padding: 0.5rem;
   position: absolute;
   border-radius: 0.25rem;
 }
